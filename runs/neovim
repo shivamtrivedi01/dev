@@ -21,16 +21,16 @@ make -C ~/neovim clean
 make -C ~/neovim CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make -C ~/neovim install
 
-git clone https://github.com/ThePrimeagen/harpoon.git $HOME/personal/harpoon
-cd $HOME/personal/harpoon
-git fetch
-git checkout harpoon2
+# git clone https://github.com/ThePrimeagen/harpoon.git $HOME/personal/harpoon
+# cd $HOME/personal/harpoon
+# git fetch
+# git checkout harpoon2
 
-git clone https://github.com/ThePrimeagen/vim-apm.git $HOME/personal/vim-apm
-git clone https://github.com/ThePrimeagen/vim-with-me.git $HOME/personal/vim-with-me
-git clone https://github.com/ThePrimeagen/vim-arcade.git $HOME/personal/vim-arcade
-git clone https://github.com/ThePrimeagen/caleb.git $HOME/personal/caleb
-git clone https://github.com/nvim-lua/plenary.nvim.git $HOME/personal/plenary
+#git clone https://github.com/ThePrimeagen/vim-apm.git $HOME/personal/vim-apm
+#git clone https://github.com/ThePrimeagen/vim-with-me.git $HOME/personal/vim-with-me
+#git clone https://github.com/ThePrimeagen/vim-arcade.git $HOME/personal/vim-arcade
+#git clone https://github.com/ThePrimeagen/caleb.git $HOME/personal/caleb
+#git clone https://github.com/nvim-lua/plenary.nvim.git $HOME/personal/plenary
 
 wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
 tar zxpf luarocks-3.11.1.tar.gz
