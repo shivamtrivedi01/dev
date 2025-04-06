@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install llvm lld llvm-dev liblld-dev clang libclang-dev libglib2.0-dev libgtk-4-dev libadwaita-1-dev git
+sudo apt install llvm lld llvm-dev liblld-dev clang libclang-dev \
+libglib2.0-dev libadwaita-1-dev git libgtk-4-dev git blueprint-compiler gettext -y
 
 wget https://ziglang.org/download/0.14.0/zig-linux-x86_64-0.14.0.tar.xz -O /tmp/zig.tar.xz
 tar -xvf /tmp/zig.tar.xz -C $HOME/.local
