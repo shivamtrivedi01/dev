@@ -1,0 +1,21 @@
+;; Caps to escape/control configuration for Kanata
+
+(defsrc
+  caps k j
+)
+
+(defvar
+  tap-time 100
+  hold-time 150
+)
+
+(defalias
+  escctrl (tap-hold 100 100 esc lctl)
+  k (multi f24 (tap-hold $tap-time $hold-time k rmet))
+  j (multi f24 (tap-hold $tap-time $hold-time j ralt))
+
+)
+
+(deflayer base
+  @escctrl @k  @j
+)
