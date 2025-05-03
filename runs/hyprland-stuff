@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+sudo pacman -S --needed --noconfirm ttf-font-awesome hyprshot waybar hyprpaper hypridle
+yay -S --needed --noconfirm hyprshot
