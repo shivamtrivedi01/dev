@@ -2,7 +2,7 @@
 /* Replace the path with your USERNAME */
 
 * {
-    font-family: JetBrainsMono, awesome-terminal-fonts;
+    font-family: JetBrainsMono Nerd Font, awesome-terminal-fonts;
     font-size: 20px;
     transition-duration: .5s;
     transition-property: background-color;

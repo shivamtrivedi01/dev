@@ -1,17 +1,15 @@
 #!/usr/bin/bash
 
-sudo pacman -S --needed --noconfirm ttf-font-awesome hyprshot waybar hyprpaper hypridle
-yay -S --needed --noconfirm hyprshot
-
-
-frappe#!/bin/bash
-
 # List of packages
 packages=(
+  mattermost-desktop
+  ttf-font-awesome
+  less
+  ttf-nerd-fonts-symbols
+  hyprshot
   ly
   waybar
   waypaper
-  swaync
   hyprpaper
   hyprsunset
   hyprlock
@@ -22,16 +20,8 @@ packages=(
   rofi-lbonn-wayland-git
   rofi-calc
   rofi-emoji
-  github-desktop-bin
-  zoom
-  aseprite
   pipes.sh
-  firefox
   nvim
-  discord
-  telegram-desktop
-  obsidian
-  steam
   nautilus
   eog
   evince
