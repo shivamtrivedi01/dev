@@ -117,7 +117,7 @@ export PATH="$HOME/.turso:$PATH"
 alias vim="nvim"
 alias v="nvim"
 alias ls="ls -al"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin:/opt/nvim-linux64/bin"
+export PATH="$PATH:/opt/azure-functions-cli"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export LC_ALL=en_IN.UTF-8
