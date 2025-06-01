@@ -1,114 +1,265 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
+    //"output": "HDMI-A-1",
+    //"layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "reload_style_on_change": true,
+    "height": 0, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "margin": 8,
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "spacing": -2, // Gaps between modules (4px)
     "modules-left": [
-        "hyprland/workspaces",
-        "tray",
+  "custom/applications",
+  "hyprland/workspaces"
+  /*"custom/splitint",*/
+  //"custom/seperator"
+	//"wlr/taskbar"
     ],
     "modules-center": [
-        "clock",
+      "hyprland/submap"
     ],
     "modules-right": [
-        "pulseaudio",
-        "battery",
-        "network",
-        "memory",
-        "cpu",
-        "backlight",
-        "power-profiles-daemon",
-        "custom/bluetooth",
-        "custom/wifi",
-        "custom/power"
+	"cpu",
+	"memory",
+	"network",
+  "custom/bluetooth-status",
+	"pulseaudio",
+  "battery",
+  "custom/seperator",
+  "clock",
+  "custom/swaync",
+  "group/expand"
     ],
-    // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
+       "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{name}",
+           "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+     },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
         "format-icons": {
-            // "1": "|",
-            "urgent": "[!]",
-            "focused": "[]",
-            "default": "[]"
+            "locked": "",
+            "unlocked": ""
         }
     },
+    "hyprland/submap": {
+        "format": "<span style=\"italic\">{}</span>",
+	"tooltip": false
+    },
+
+
+//"custom/seperator": {
+//    "format": "<span font='GohuFont 14 Nerd Font Mono 10'> |</span>",
+//    "tooltip": false
+//},
+//
+//"custom/seperator_2": {
+//    "format": "<span font='GohuFont 14 Nerd Font Mono 11.5'> </span>",
+//    "tooltip": false
+//},
+
+
+//"wlr/taskbar": {
+//  "all-outputs": false,
+//  "icon-size": 15.0,
+//	"tooltip": true,
+//	"format": "{icon} {title}",
+//	"tooltip-format": "{name}\nAPPID: {app_id}\nWindow State: {state} [{short_state}] \n\n{name}",
+//  "on-click-middle": "close",
+//  "on-click": "minimize-raise",
+//  "sort-by-app-id": false,
+//  "markup": true
+//},
+
+
+"hyprland/window": {
+  "separate-outputs": true,
+	"format": "{title}",
+	"icon": "true",
+	"icon-size": "10",
+	"tooltip-format": "{class}:  {title}",
+	"expand": true
+    },
+
+    "custom/expander": {
+      "format": "<span font='Font Awesome 6 Free 9'> </span>",
+      "tooltip": false
+    },
+
+    "group/expand": {
+      "orientation": "horizontal",
+      "drawer": {
+          "transition-duration": 600,
+          "transition-to-left": true,
+          "click-to-reveal": true
+    },
+    "modules": ["custom/expander", /* "custom/power", "power-profiles-daemon", "custom/pacman-updates", */ "tray"]
+
+
+        },
     "tray": {
-        "icon-size": 21,
+        "icon-size": 18.0,
         "spacing": 10
     },
+
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%d - %H:%M}"
+        /*"timezone": "America/x",*/
+        "interval": 1,
+	      "tooltip-format": "<big>{:%Y %B, %d | %A}</big>\n\n<tt><small>{calendar}</small></tt>",
+        "format": "<span font='Fira Code SemiBold 9.5'>{:%a %b %d  %r}</span>"
     },
+
+    "custom/applications": {
+      "format": "<span font='Font Awesome 6 Free 10'> </span>",
+	    "tooltip": false,
+	    "on-click": "pkill -x wofi || wofi -I -H 500 -W 500 --show drun"
+    },
+
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "  {usage}% ",
+        "format": "<span font='Font Awesome 6 Free 10'>   </span>{usage}%",
+      	"interval": 3,
+        "tooltip-format": "{usage{n}}"
     },
+
     "memory": {
-        "format": "{}% "
+        "format": "  {used}GiB ",
+        "format": "<span font='Font Awesome 6 Free 10'>   </span>{used}GiB",
+	      "interval": 3,
+	      "tooltip-format": "Avail: {used}GiB of {avail}GiB\nSWAP: {swapUsed}GiB of {swapTotal}GiB\nTotal Used: {total}GiB"
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+
+    "temperature": {
+        "tooltip-format": "Temperature from thermal zone\n	     {temperatureC}°C",
+	      // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
     },
+
     "battery": {
         "states": {
-            // "good": 95,
-            "warning": 30,
+            "good": 75,
+            "warning": 35,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+	      "interval": 2,
+        "format": "<span font='Font Awesome 6 Free 10'>{icon}  </span>{capacity}%",
+        "format-full": "<span font='Font Awesome 6 Free 10'>{icon}  </span>{capacity}%",
+        "format-charging": "<span font='Font Awesome 6 Free 10'> </span>+ {capacity}%",
+        "format-plugged": "<span font='Font Awesome 6 Free 10'>  </span>- {capacity}%",
+        "format-tooltip": "{capacity}%\n{time}",
+        "format-icons": [" ", " ", " ", " ", " "]
     },
+
     "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
+      "format": " {icon}",
+      "tooltip-format": "{profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "󰓅",
+        "performance": "󰓅",
+        "balanced": "󰾅",
+        "power-saver": "󰾆"
+      }
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "<span font='Font Awesome 6 Free 10'>{icon}   </span>{essid}",
+        "format-ethernet": "<span font='Font Awesome 6 Free 10'>{icon}   </span>Wired",
+        "tooltip-format": "{ipaddr} on {ifname}\nessid: {essid}, ({signalStrength}%)\n{bandwidthUpBits}    {bandwidthDownBits}",
+        "format-linked": "<span font='Font Awesome 6 Free 10'>{icon}   </span>No IP",
+        "format-disconnected": "<span font='Font Awesome 6 Free 10'>{icon}   </span>Disconnected",
+	      "on-click": "ghostty -e  nmtui",
         "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
+          "wifi": " ",
+          "ethernet": "󰈀",
+          "disconnected": " "
         }
     },
-    "network": {
-        "format-wifi": "󰤢 ",
-        "format-ethernet": "󰈀 ",
-        "format-disconnected": "󰤠 ",
-        "interval": 5,
-        "tooltip": false
-    },
+
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "",
+        "format": "<span font='Font Awesome 6 Free 9.0'>{icon}   </span>{volume}%",
+        "format-bluetooth": "<span font='Font Awesome 6 Free 9.0'>{icon}    </span>{volume}%",
+        "format-muted": "<span font='Font Awesome 6 Free 9.0'>    </span>{volume}%",
+        "format-bluetooth-muted": "    {icon} {format_source}",
+        "format-source": "{volume}%",
+        "format-source-muted": "",
         "format-icons": {
             "default": ["", "", " "]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pkill -x pavucontrol || pavucontrol",
+        "on-click-right": "pamixer -t"
+
     },
+
+
     "custom/power": {
-        "format" : "⏻",
-        "tooltip": false,
-        "on-click": "wlogout"
+        "format" : "",
+		"tooltip": true,
+        "tooltip-format": "Launches wlogout\n(Press ESC to exit).",
+		"on-click": "wlogout"
     },
-    "custom/bluetooth": {
-        "format" : "",
-        "tooltip": false,
-        "on-click": "blueberry"
+
+    "custom/splitint": {
+      "format": "<span font='Font Awesome 6 Free 9'>{}</span>",
+      "exec": "~/.config/hypr/Scripts/force_split_output-waybar.sh",
+      "interval": 1,
+      "on-click": "~/.config/hypr/Scripts/force_split_toggle.sh",
+      "tooltip": false
     },
+
+    "custom/pacman-updates": {
+      "format": "   {}",
+      "exec": "pacman -Qu | wc -l",
+      "on-click": "ghostty -e --title='pacman -Syu'  ~/.config/hypr/Scripts/pacman.sh",
+      "on-click-right": "ghostty -e --title='pacman -Sy'  ~/.config/hypr/Scripts/pacman-sync.sh",
+      "tooltip": false,
+      "interval": 60
+    },
+
+    "custom/nvidia-temp": {
+      "format": ":0 {}",
+      "exec": "nvidia-smi | awk '/Default/ {gsub(/C/, \"°C\", $3); print $3}'"
+    },
+
+    "custom/bluetooth-status": {
+      "format": "<span font='Font Awesome 6 Free 10'>{}</span>",
+      "exec": "~/.config/hypr/Scripts/bluetooth_status.sh",
+      "on-click": "blueberry",
+      "tooltip": false,
+      "interval": 2
+    },
+
+    "custom/wifi-status": {
+      "format": "{}",
+      "exec": "~/.config/hypr/Scripts/wifi_status.sh",
+      "tooltip": false,
+      "interval": 2
+    },
+
+    "custom/swaync": {
+      "format": "<span font='Font Awesome 6 Free 10.5'> {} </span>",
+      "exec": "~/.config/hypr/Scripts/swaync-icon.sh",
+      "on-click": "swaync-client -t",
+      "tooltip": false,
+      "interval": 2
+    }
+    }
 }
