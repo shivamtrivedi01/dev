@@ -136,10 +136,10 @@
     },
 
     "memory": {
-        "format": "  {used}GiB ",
-        "format": "<span font='Font Awesome 6 Free 10'>   </span>{used}GiB",
+        "format": "  {used}G/{total}G",
+        "format": "<span font='Font Awesome 6 Free 10'>   </span>{used}G/{total}G",
 	      "interval": 3,
-	      "tooltip-format": "Avail: {used}GiB of {avail}GiB\nSWAP: {swapUsed}GiB of {swapTotal}GiB\nTotal Used: {total}GiB"
+	      "tooltip-format": "Used: {used}GiB of {total}GiB\nSWAP: {swapUsed}GiB of {swapTotal}GiB"
     },
 
     "temperature": {
