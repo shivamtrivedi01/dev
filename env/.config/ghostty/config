@@ -8,8 +8,8 @@ shell-integration-features = no-cursor,no-sudo,no-title
 gtk-titlebar = false
 font-size = 17
 # what is a prefix?
-keybind = ctrl+d=scroll_page_fractional:0.5
-keybind = ctrl+u=scroll_page_fractional:-0.5
+# keybind = ctrl+d=scroll_page_fractional:0.5
+# keybind = ctrl+u=scroll_page_fractional:-0.5
 keybind = alt+one=unbind
 keybind = alt+two=unbind
 keybind = alt+three=unbind
