@@ -3,6 +3,7 @@
 theme = catppuccin-mocha
 # background = 000000
 background-opacity = 0.8
+confirm-close-surface=false
 scrollback-limit = 100000
 shell-integration-features = no-cursor,no-sudo,no-title
 gtk-titlebar = false
