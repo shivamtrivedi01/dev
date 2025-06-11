@@ -3,7 +3,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FiraCodeRetina, NotoFontsEmoji, FontAwesome, Symbol;
-    font-size: 13.0px;
+    font-size: 15.0px;
     min-height: 0px;
     margin-left: 2px;
     margin-right: 2px;
@@ -14,6 +14,9 @@ window#waybar {
     color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
+    border: 1px solid @color6; /* Thickness and color of the border */
+    border-radius: 1px;         /* Optional: rounded corners */
+    margin: 4px;                /* Optional: spacing around the bar */
 }
 
 window#waybar.empty #window {

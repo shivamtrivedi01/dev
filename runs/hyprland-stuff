@@ -2,6 +2,8 @@
 
 # List of packages
 packages=(
+  hyprpicker
+  satty
   pamixer
   ttf-fira-code
   ttf-nerd-fonts-symbols
