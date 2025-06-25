@@ -1,7 +1,7 @@
 ;; Caps to escape/control configuration for Kanata
 
 (defsrc
-  caps i u
+  caps 8 9
 )
 
 (defvar
@@ -11,11 +11,11 @@
 
 (defalias
   escctrl (tap-hold 100 100 esc lctl)
-  i (multi f24 (tap-hold $tap-time $hold-time i rmet))
-  u (multi f24 (tap-hold $tap-time $hold-time u ralt))
+  8 (multi f24 (tap-hold $tap-time $hold-time 8 ralt))
+  9 (multi f24 (tap-hold $tap-time $hold-time 9 rmet))
 
 )
 
 (deflayer base
-  @escctrl @i  @u
+  @escctrl @8  @9
 )
