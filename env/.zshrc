@@ -122,3 +122,4 @@ export PATH="$PATH:/opt/azure-functions-cli"
 
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
+source /usr/share/nvm/init-nvm.sh
