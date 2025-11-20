@@ -2,7 +2,7 @@
 
 theme = Catppuccin Mocha
 #background = 000000
-background-opacity = 0.8
+background-opacity = 0.5
 confirm-close-surface=false
 scrollback-limit = 100000
 shell-integration-features = no-cursor,no-sudo,no-title
