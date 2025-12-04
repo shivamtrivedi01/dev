@@ -125,7 +125,7 @@
     "custom/applications": {
       "format": "<span font='Font Awesome 6 Free 10'> </span>",
 	    "tooltip": false,
-	    "on-click": "pkill -x wofi || wofi -I -H 500 -W 500 --show drun"
+	    // "on-click": "pkill -x wofi || wofi -I -H 500 -W 500 --show drun"
     },
 
     "cpu": {

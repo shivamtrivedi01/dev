@@ -9,9 +9,9 @@
 }
 
 configuration {
-    show-icons: false;
-    kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
-    kb-row-down: "Down,Control+j";
+    show-icons: true;
+    kb-row-up: "Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab";
+    kb-row-down: "Down,Control+n";
     kb-accept-entry: "Control+m,Return,KP_Enter";
     kb-remove-to-eol: "Control+Shift+e";
     kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
