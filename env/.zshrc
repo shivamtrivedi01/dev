@@ -122,4 +122,7 @@ export PATH="$PATH:/opt/azure-functions-cli"
 
 export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
-source /usr/share/nvm/init-nvm.sh
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
