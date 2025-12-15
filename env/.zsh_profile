@@ -51,6 +51,7 @@ addToPathFront $HOME/.local/.npm-global/bin
 addToPathFront $HOME/.local/odin
 addToPathFront $HOME/.local/apps
 addToPathFront $HOME/.local/scripts
+addToPathFront $HOME/.local/personal-scripts
 addToPathFront $HOME/.local/bin
 addToPathFront $HOME/.local/npm/bin
 addToPathFront $HOME/.local/n/bin/
