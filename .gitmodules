@@ -1,3 +1,6 @@
 [submodule "env/.config/nvim"]
 	path = env/.config/nvim
 	url = https://github.com/shivamtrivedi01/config.nvim.git
+[submodule "env/.local/personal-scripts"]
+	path = env/.local/personal-scripts
+	url = https://github.com/shivamtrivedi01/personal-scripts.git
