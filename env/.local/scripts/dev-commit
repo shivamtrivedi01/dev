@@ -6,6 +6,12 @@ git commit -m 'automated dev commit'
 git push
 popd
 
+pushd ~/personal/dev/env/.local/personal-scripts
+git add .
+git commit -m 'automated dev commit'
+git push
+popd
+
 pushd ~/personal/dev
 git add .
 git commit -m 'automated dev commit'
