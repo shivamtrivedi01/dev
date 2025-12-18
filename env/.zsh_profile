@@ -17,7 +17,7 @@ export N_PREFIX="$HOME/.local/n"
 export FLYCTL_INSTALL="/home/theprimeagen/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export DEV_ENV_HOME="$HOME/personal/dev"
-
+export EDITOR="nvim"
 dev_env() {
 
 }

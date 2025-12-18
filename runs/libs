@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --needed --noconfirm git ripgrep pavucontrol xclip jq shutter fd-find
+sudo pacman -S --needed --noconfirm git ripgrep pavucontrol xclip jq shutter fd-find zoxide
