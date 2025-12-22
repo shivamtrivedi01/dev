@@ -1,5 +1,5 @@
 {
-  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "$schema": "/home/shivam/.config/swaync/configSchema.json",
   "positionX": "left",
   "positionY": "top",
   "layer": "overlay",
@@ -15,8 +15,8 @@
   "notification-icon-size": 64,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
-  "timeout": 3.5,
-  "timeout-low": 1.5,
+  "timeout": 4,
+  "timeout-low": 2,
   "timeout-critical": 0,
   "fit-to-screen": true,
   "relative-timestamps": true,
@@ -86,13 +86,13 @@
           "label": "",
           "type": "toggle",
           "active": false,
-          "command": "bash ~/.config/hypr/Scripts/idle_inhibitor-swaync.sh"
+          "command": "~/.config/hypr/Scripts/idle_inhibitor-swaync.sh"
         },
         {
           "label": "󰈀",
           "type": "toggle",
           "active": true,
-          "command": "/home/spacerat/.config/hypr/Scripts/eth0_toggle-swaync.sh"
+          "command": "~/.config/hypr/Scripts/eth0_toggle-swaync.sh"
         },
         {
           "label": "",
