@@ -1,52 +1,39 @@
 #!/bin/bash
+LOCK=/tmp/brightness-lock
+CACHE=/tmp/backlight-value
+STEP=${2:-5}
+DISPLAYS=(1 2)
+MAX=100
 
-# Usage:
-#   backlight.sh {inc|dec} amount
+exec 9>"$LOCK" || exit
+flock -n 9 || exit
 
-# Avoid multiple instances
-[ -f /tmp/brightness-lock ] && exit
-touch /tmp/brightness-lock
-
-if "${3}" == 'use_xbacklight' && command -v xbacklight; then
-  # xbacklight method
-  xbacklight -${1} ${2}
+# Load cached brightness or initialize once
+if [[ -f "$CACHE" ]]; then
+  read -r current < "$CACHE"
 else
-  # DDC method
-  cache_file='/tmp/backlight-vcp-value'
-  cache_outdated() {
-    min_value=$(($(date +%s) - 60 * 5 )) # minutes
-    mod_time=$(date -r "${cache_file}" +%s)
-    return $(($mod_time > $min_value))
-  }
-
-  # Referesh values using ddcutil if needed
-  if [ ! -f "${cache_file}" ] || cache_outdated; then
-    rawvcp=$(ddcutil getvcp 10)
-    current_vcp_value=$(echo -n ${rawvcp}|sed -r 's/^.+current value = *([0-9]+),.+/\1/')
-    max_vcp_value=$(echo -n ${rawvcp}|sed -r 's/^.+max.+ = *([0-9]+)/\1/')
-  fi
-
-  # Read values from cache when it is valid
-  [ -z "$current_vcp_value" ] && read current_vcp_value max_vcp_value <<< $(cat "${cache_file}")
-
-  # Calc new brightness
-  [ "${1}" == 'inc' ] && op='+' || op='-'
-  new_brightness=$((${current_vcp_value} $op ${2}))
-
-  # Check boundaries
-  if [[ "$new_brightness" -gt "$max_vcp_value" ]]; then
-    new_brightness="${max_vcp_value}"
-  elif [[ "$new_brightness" -lt 0 ]]; then
-    new_brightness=0
-  fi
-
-  # Save values to cache
-  echo "${new_brightness} ${max_vcp_value}" >$cache_file
-
-  # Send new value to display
-  ddcutil setvcp 10 ${new_brightness} -d 1
-  ddcutil setvcp 10 ${new_brightness} -d 2
+  # ONE-TIME slow call
+  raw=$(ddcutil getvcp 10 2>/dev/null)
+  current=${raw##*current value = }
+  current=${current%%,*}
 fi
 
-# Unlock
-rm /tmp/brightness-lock
+# Calculate new brightness
+if [[ "$1" == "inc" ]]; then
+  new=$((current + STEP))
+else
+  new=$((current - STEP))
+fi
+
+# Clamp
+(( new > MAX )) && new=$MAX
+(( new < 0 )) && new=0
+
+# Save cache
+echo "$new" > "$CACHE"
+
+# Apply brightness (fast path)
+for d in "${DISPLAYS[@]}"; do
+  ddcutil setvcp 10 "$new" -d "$d" --noverify >/dev/null 2>&1 &
+done
+wait

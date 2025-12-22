@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-sudo pacman -S --needed --noconfirm git ripgrep pavucontrol xclip jq shutter fd-find zoxide
+sudo pacman -S --needed --noconfirm git ripgrep pavucontrol xclip jq shutter fd-find zoxide ddcutil
+sudo chmod u+s /usr/bin/ddcutil
