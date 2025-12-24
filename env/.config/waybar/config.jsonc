@@ -22,7 +22,7 @@
       "cpu",
       "temperature",
       "memory",
-      "network",
+      "custom/brightness",
       "custom/bluetooth-status",
       "pulseaudio",
       "battery",
@@ -240,7 +240,16 @@
       "format": ":0 {}",
       "exec": "nvidia-smi | awk '/Default/ {gsub(/C/, \"°C\", $3); print $3}'"
     },
-
+  "custom/brightness": {
+    "format": " {text}%",
+    "signal": 8,
+    "exec": "~/.local/scripts/new_brightness_control.sh get",
+    "on-scroll-up": "~/.local/scripts/new_brightness_control.sh up",
+    "on-scroll-down": "~/.local/scripts/new_brightness_control.sh down",
+    "on-click": "~/.local/scripts/new_brightness_control.sh left_click",
+    "on-click-right":  "~/.local/scripts/new_brightness_control.sh right_click",
+    "tooltip": false
+  },
     "custom/bluetooth-status": {
       "format": "<span font='Font Awesome 6 Free 10'>{}</span>",
       "exec": "~/.config/hypr/Scripts/bluetooth_status.sh",

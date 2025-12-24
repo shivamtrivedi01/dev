@@ -1,0 +1,22 @@
+configuration {
+  modi: "brightness:~/.local/scripts/brightness-slider.sh";
+}
+
+window {
+  width: 400px;
+}
+
+listview {
+  lines: 1;
+}
+
+element-text {
+  font: "JetBrainsMono Nerd Font 18";
+}
+
+slider {
+  enabled: true;
+  min: 0;
+  max: 100;
+}
+
