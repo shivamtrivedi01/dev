@@ -23,6 +23,7 @@
       "temperature",
       "memory",
       "custom/brightness",
+      "custom/contrast",
       "custom/bluetooth-status",
       "pulseaudio",
       "battery",
@@ -248,6 +249,16 @@
     "on-scroll-down": "~/.local/scripts/new_brightness_control.sh down",
     "on-click": "~/.local/scripts/new_brightness_control.sh left_click",
     "on-click-right":  "~/.local/scripts/new_brightness_control.sh right_click",
+    "tooltip": false
+  },
+  "custom/contrast": {
+    "format": "🌗 {text}%",
+    "signal": 8,
+    "exec": "~/.local/scripts/contrast_control.sh get",
+    "on-scroll-up": "~/.local/scripts/contrast_control.sh up",
+    "on-scroll-down": "~/.local/scripts/contrast_control.sh down",
+    "on-click": "~/.local/scripts/contrast_control.sh left_click",
+    "on-click-right":  "~/.local/scripts/contrast_control.sh right_click",
     "tooltip": false
   },
     "custom/bluetooth-status": {
