@@ -19,9 +19,10 @@
       "hyprland/submap"
     ],
     "modules-right": [
-      "cpu",
       "temperature",
+      "cpu",
       "memory",
+      "disk",
       "custom/brightness",
       "custom/contrast",
       "custom/bluetooth-status",
