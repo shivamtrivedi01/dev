@@ -23,7 +23,7 @@ packages=(
   hyprlock
   udiskie
   wlogout
-  python-pywal16
+  python-pywal
   nwg-look
   rofi-lbonn-wayland-git
   rofi-calc
