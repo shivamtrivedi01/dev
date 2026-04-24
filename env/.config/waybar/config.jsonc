@@ -18,19 +18,21 @@
       "clock",
       "hyprland/submap"
     ],
-    "modules-right": [
-      "temperature",
-      "cpu",
-      "memory",
-      "disk",
-      "custom/brightness",
-      "custom/contrast",
-      "custom/bluetooth-status",
-      "pulseaudio",
-      "battery",
-      "custom/seperator",
-      "custom/swaync",
-      "group/expand"
+"modules-right": [
+       "temperature",
+       "cpu",
+       "memory",
+       "disk",
+       "custom/brightness-benq",
+       "custom/brightness-lenovo",
+       "custom/contrast-benq",
+       "custom/contrast-lenovo",
+       "custom/bluetooth-status",
+       "pulseaudio",
+       "battery",
+       "custom/seperator",
+       "custom/swaync",
+       "group/expand"
     ],
        "hyprland/workspaces": {
          "disable-scroll": true,
@@ -242,24 +244,46 @@
       "format": ":0 {}",
       "exec": "nvidia-smi | awk '/Default/ {gsub(/C/, \"°C\", $3); print $3}'"
     },
-  "custom/brightness": {
-    "format": " {text}%",
+  "custom/brightness-benq": {
+    "format": "BenQ: {text}%",
+    "interval": 1,
     "signal": 8,
-    "exec": "~/.local/scripts/new_brightness_control.sh get",
-    "on-scroll-up": "~/.local/scripts/new_brightness_control.sh up",
-    "on-scroll-down": "~/.local/scripts/new_brightness_control.sh down",
-    "on-click": "~/.local/scripts/new_brightness_control.sh left_click",
-    "on-click-right":  "~/.local/scripts/new_brightness_control.sh right_click",
+    "exec": "~/.local/scripts/new_brightness_control.sh benq get",
+    "on-scroll-up": "~/.local/scripts/new_brightness_control.sh benq up",
+    "on-scroll-down": "~/.local/scripts/new_brightness_control.sh benq down",
+    "on-click": "~/.local/scripts/new_brightness_control.sh benq left_click",
+    "on-click-right":  "~/.local/scripts/new_brightness_control.sh benq right_click",
     "tooltip": false
   },
-  "custom/contrast": {
-    "format": "🌗 {text}%",
+  "custom/brightness-lenovo": {
+    "format": "Lenovo: {text}%",
+    "interval": 1,
     "signal": 8,
-    "exec": "~/.local/scripts/contrast_control.sh get",
-    "on-scroll-up": "~/.local/scripts/contrast_control.sh up",
-    "on-scroll-down": "~/.local/scripts/contrast_control.sh down",
-    "on-click": "~/.local/scripts/contrast_control.sh left_click",
-    "on-click-right":  "~/.local/scripts/contrast_control.sh right_click",
+    "exec": "~/.local/scripts/new_brightness_control.sh lenovo get",
+    "on-scroll-up": "~/.local/scripts/new_brightness_control.sh lenovo up",
+    "on-scroll-down": "~/.local/scripts/new_brightness_control.sh lenovo down",
+    "on-click": "~/.local/scripts/new_brightness_control.sh lenovo left_click",
+    "on-click-right":  "~/.local/scripts/new_brightness_control.sh lenovo right_click",
+    "tooltip": false
+  },
+  "custom/contrast-benq": {
+    "format": "BenQ: {text}%",
+    "signal": 8,
+    "exec": "~/.local/scripts/contrast_control.sh benq get",
+    "on-scroll-up": "~/.local/scripts/contrast_control.sh benq up",
+    "on-scroll-down": "~/.local/scripts/contrast_control.sh benq down",
+    "on-click": "~/.local/scripts/contrast_control.sh benq left_click",
+    "on-click-right":  "~/.local/scripts/contrast_control.sh benq right_click",
+    "tooltip": false
+  },
+  "custom/contrast-lenovo": {
+    "format": "Lenovo: {text}%",
+    "signal": 8,
+    "exec": "~/.local/scripts/contrast_control.sh lenovo get",
+    "on-scroll-up": "~/.local/scripts/contrast_control.sh lenovo up",
+    "on-scroll-down": "~/.local/scripts/contrast_control.sh lenovo down",
+    "on-click": "~/.local/scripts/contrast_control.sh lenovo left_click",
+    "on-click-right":  "~/.local/scripts/contrast_control.sh lenovo right_click",
     "tooltip": false
   },
     "custom/bluetooth-status": {
