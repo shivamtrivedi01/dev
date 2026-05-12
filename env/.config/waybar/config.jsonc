@@ -124,7 +124,8 @@
         /*"timezone": "America/x",*/
         "interval": 1,
 	      "tooltip-format": "<big>{:%Y %B, %d | %A}</big>\n\n<tt><small>{calendar}</small></tt>",
-        "format": "<span font='Fira Code SemiBold 9.5'>{:%a %b %d  %r}</span>"
+        "format": "<span font='Fira Code SemiBold 9.5'>{:%a %b %d  %r}</span>",
+        "on-click": "gnome-calendar"
     },
     "custom/applications": {
       "format": "<span font='Font Awesome 6 Free 10'> </span>",
