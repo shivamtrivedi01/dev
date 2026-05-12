@@ -35,13 +35,28 @@ packages=(
   evince
   decibels
   blueberry
-  pavucontrol
   network-manager-applet
   asciiquarium
   sl
   lolcat
   bibata-cursor-theme
   adw-gtk-theme
+  swww
+  vesktop-bin
+  nextcloud-talk-desktop-bin
+  brave-bin
+  postman-bin
+  onlyoffice-bin
+  zoxide
+  wl-clipboard
+  vlc
+  slurp
+  opencode
+  nvm
+  obs-studio
+  nwg-look
+  nvidia-utils
+
 )
 
 sudo pacman -Sy --noconfirm
